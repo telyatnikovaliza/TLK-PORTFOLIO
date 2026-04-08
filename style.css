@@ -1,0 +1,1969 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    padding: 0 clamp(16px, 5vw, 80px);
+}
+
+@font-face {
+    font-family: 'Corsa';
+    src: url('./fonts/Typedepot\ -\ Corsa\ Grotesk\ Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Corsa';
+    src: url('./fonts/Typedepot\ -\ Corsa\ Grotesk\ Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ReSquare';
+    src: url('./fonts/ReSquare\ Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+@font-face {
+    font-family: 'ReSquare';
+    src: url('./fonts/ReSquare\ Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ReSquare';
+    src: url('./fonts/ReSquare\ Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+.container {
+    padding: 0 0%;
+    max-width: 1760px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+
+}
+.header {
+    text-align: left;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+.header h1 {
+    font-family: 'ReSquare', sans-serif;
+    font-size: clamp(24px, 5vw, 48px);
+    color: #FF90CB;
+    font: 700;
+}
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /*height: auto;  вместо 100vh */
+    min-height: calc(100vh - 48px); /* можно под header */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* чтобы всё выравнивалось по низу */
+    height: auto; /* фиксированная высота */
+}
+.text {
+    display: flex;       
+    flex-direction: row; 
+    align-items: flex-end;
+    position: absolute;
+    top: 0%;      /* управляешь всей группой */
+    left: 0%;     /* или центрирование с transform */
+    z-index: 3;
+    justify-content: space-between;
+}
+.textn{
+    display: flex;       
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items:left;
+    z-index: 3;
+    width: 100%;
+}
+.text h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: clamp(80px, 10vw, 196px);
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-align: start;
+}
+.textn h2:first-child {
+    text-align: left;
+}
+
+.textn h2:last-child {
+    text-align: right;
+}
+.text h2{
+    font-family: 'ReSquare', sans-serif;
+    font-size: clamp(20px, 3vw, 40px);
+    color: #1E1D1D;
+    font-weight: 500;
+    text-align:end;
+}
+.me {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+.me img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.hero-center {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: clamp(260px, 30vw, 536px);
+    aspect-ratio: 1 / 1; 
+    z-index: 2;
+}
+.background {
+    width: 1760px;
+    height: 800px;
+}
+.bg-element {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+.bg1 {
+    position: absolute;  /* элемент позиционируется относительно родителя с position: relative (.hero) */
+    top: -60%;            /* 10% от высоты родителя (.hero) */
+    left: -130%;            /* 5% от ширины родителя (.hero) */
+    width: clamp(150px, 100vw, 1000px);  /* адаптивная ширина: минимум 150px, максимум 400px, обычно 20% ширины окна */
+    aspect-ratio: 1/1;   /* квадратный элемент */
+    background-image: url('./images/greenstar.png');
+    background-size: contain;  /* картинка полностью помещается в элемент */
+    background-repeat: no-repeat;
+    z-index: 1;
+    transition: all 0.4s ease-in-out;
+}
+
+.bg2 {
+    position: absolute;
+    width: clamp(120px, 100vw, 720px);
+    aspect-ratio: 1/1;
+    background-image: url('./images/triangleblue.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -10%;            /* 10% от высоты родителя (.hero) */
+    left: -81%;
+    z-index: 2;
+    transition: all 0.4s ease-in-out;
+}
+.bg3 {
+    width: clamp(120px, 100vw, 800px);
+    height: 800px;
+    background-image: url('./images/starorange.png');
+    z-index: 1;
+    position: absolute;
+    top: -40%;           
+    left: 10%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.4s ease-in-out;
+}
+.bg4 {
+    position: absolute;
+    width: clamp(120px, 100vw, 600px);
+    aspect-ratio: 1 / 1;
+    background-image: url('./images/starwhite.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    top: -10%;          
+    left: -76%;
+    transition: all 0.4s ease-in-out;
+}
+.bg5 {
+    position: absolute;
+    top: 5%;          
+    left: 55%;
+    transition: all 0.4s ease-in-out;
+    width: clamp(120px, 100vw, 640px);
+    aspect-ratio: 1 / 1;
+    background-image: url('./images/circ.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+.bg6 {
+    position: absolute;
+    top: -60%;          
+    left: 100%;
+    width: clamp(120px, 100vw, 1000px);
+    aspect-ratio: 1 / 1;
+    background-image: url('./images/rect.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transition: all 0.4s ease-in-out;
+}
+
+.bg7 {
+    position: absolute;
+    transform: translate(100%, -85%);
+    width: clamp(300px, 10%, 300px);
+    aspect-ratio: 1 / 1;
+    background-image: url('./images/cirwh.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+.bg8 {
+    position: absolute;
+    transform: translate(220%, -180%);
+    width: clamp(270px, 8%, 270px);
+    aspect-ratio: 1 / 1;
+    background-image: url('./images/cirwh.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.bg9 {
+    position: absolute;
+    transform: translate(34%, -120%);
+    width: clamp(750px, 20%, 750px);
+    height: clamp(350px, 6%, 350px);
+    background-image: url('./images/arrow.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 4;
+}
+
+.bg10 {
+    width: 260px;
+    height: 50px;
+    background-image: url('./images/c.png');
+    z-index: 4;
+    position: absolute;
+    transform: translate(60%, -130%);
+}
+/*.bg11 {
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 100vw;     
+    height: auto;
+    max-width: 1000px; 
+    min-height: 700px; 
+    background-image: url('./images/Star23.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.7;
+}*/
+
+.text2 {
+    display: flex;       
+    flex-direction: row; 
+    align-items:center;
+    z-index: 4;
+    justify-content: space-between;
+    position: relative;
+    margin: 0;
+    padding-bottom: 24px;
+}
+.text2 h1 {
+    font-family: 'ReSquare', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 700;
+    line-height: 1;
+}
+.text2 h2 {
+    font-family: 'ReSquare', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 700;
+    line-height: 1;
+}
+.cont2 {
+    margin-top: 120px;
+}
+.aboutme {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+.text3 h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: 64px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+}
+.sect1 {
+    display: flex;       
+    flex-direction: column;
+    align-items:flex-start;
+    z-index: 1;
+    margin-top: 56px;
+    width: 100%;   
+    height: auto;    
+    position: relative
+}
+.study {
+    display: flex;       
+    flex-direction: column;
+}
+.sect2 {
+    display: flex;       
+    flex-direction: row;
+    align-items: left;
+    z-index: 3;
+    width: 100%;
+}
+.sect2 h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+.sect2 h3{
+    font-family: 'Corsa', sans-serif;
+    font-size: 48px;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    z-index: 100;
+}
+.sect2 a {
+    font-family: 'ReSquare', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+.sect2 h2 {
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.myimg{
+    margin: 24px auto 48px auto;
+    width: 80vw;
+    max-width: 400px;
+
+    aspect-ratio: 1 / 1; 
+    
+    background-image: url('./images/me2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.skills,
+.progs {
+    flex: 1;
+}
+.sect3 {
+    display: flex;       
+    flex-direction: row;
+    z-index: 2;
+    margin-top: 48px;
+}
+.skills {
+    display: flex;       
+    flex-direction: column;
+}
+.progs {
+    display: flex;       
+    flex-direction: column;
+}
+.sect3 h1 {
+    font-family: 'Corsa', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 48px;
+    z-index: 100;
+}
+.pills, .pills2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    z-index: 100;
+}
+.pill {
+    font-family: 'ReSquare', sans-serif;
+    font-size: 32px;
+    padding: 12px 16px;
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    color: #1E1D1D;
+    border: 2px solid pink;
+    font-weight: 500;
+}
+.pill2 {
+    font-family: 'ReSquare', sans-serif;
+    font-size: 32px;
+    padding: 12px 16px;
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    color: #1E1D1D;
+    border: 2px solid #AEF088;
+    font-weight: 500;
+}
+.img-wrapper {
+    top: 56px;
+    position: relative;
+    height: 570px;
+    z-index: 2;
+    width: 80vw;
+    aspect-ratio: 1 / 1; /* 🔥 ключ */
+    margin: 0 auto;
+}
+.myimg2 {
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/me3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.tt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: #1E1D1D;
+    font-family: 'Corsa', sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    text-align: left;
+    z-index: 3;
+}
+.sect3 h3 {
+    font-family: 'Corsa', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: 32px;
+    z-index: 100;
+    margin-bottom: 40px;
+}
+.programms {
+    display: flex;                  
+    gap: 32px;      
+    flex-direction: row;      
+  }
+.prog1{
+    display: flex;                  
+    gap: 8px;      
+    flex-direction: column;    
+}
+.prog2{
+    display: flex;                  
+    gap: 8px;      
+    flex-direction: column;       
+}
+  .pr1 {
+    display: flex;           
+    align-items: center;    
+    gap: 8px;     
+  }
+  
+  .pr1 img {
+    width: 72px;           
+    height: 72px;           
+    object-fit: contain;    
+  }
+  
+  .pr1 span {
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+    font-weight: 400;
+  }
+
+  .pr2 {
+    display: flex;           
+    align-items: center;    
+    gap: 8px;           
+  }
+  
+  .pr2 img {
+    width: 72px;           
+    height: 72px;           
+    object-fit: contain;    
+  }
+  
+  .pr2 span {
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+    font-weight: 400;
+  }
+  /*.bg12 {
+    top: 62%;
+    left: -4.5%;
+    width: 1000px;
+    height: 960px;
+    background-image: url('./images/cirgr.png');
+    z-index: 2;
+    position: absolute;
+    pointer-events: none;
+    max-width: none;
+    background-repeat: no-repeat;
+    opacity: 70%;
+}*/
+
+.cont3{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+    margin-top: 120px; 
+}
+.contacts {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 120px; 
+}
+.text5 {
+    margin-top: 56px;
+}
+.text5 h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: 64px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+}
+.contcontacts{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.itemsmy{
+    grid-column: span 5; 
+    display: flex; 
+    flex-direction: column; /* 🔥 делает элементы друг под другом */ 
+    gap: 24px; /* расстояние между ними */ 
+    margin-top: 56px;
+}
+.form{
+    grid-column: span 7;
+}
+
+/* сама форма */
+.contact-form {
+    background: #fff;
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* заголовок */
+.contact-form h2 {
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1E1D1D;
+    line-height: 1.2;
+    margin-bottom: 48px;
+}
+
+/* группа поля */
+.form-group {
+    position: relative;
+}
+
+/* input и textarea */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: 'Corsa', sans-serif;
+    font-size: 24px;
+    color: #1E1D1D;
+
+    padding-bottom: 8px;
+    border-bottom: 2px solid #FF90CB;
+
+    transition: border-color 0.3s ease;
+}
+
+/* textarea */
+.contact-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    max-height: 200px;
+}
+
+/* placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+/* focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-bottom: 2px solid #AEF088;
+}
+
+/* ошибка */
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+    border-bottom: 2px solid #FF90CB;
+}
+
+/* кнопка */
+.form-btn {
+    position: relative; /* 🔥 ОБЯЗАТЕЛЬНО */
+    overflow: hidden;   /* 🔥 чтобы градиент не вылезал */
+    isolation: isolate; /* (как у butlook — правильно!) */
+
+    margin: 0 auto;
+    width: 100%;
+    height: 64px;
+    border-radius: 100px;
+
+    background: #1E1D1D;
+    color: #fff;
+
+    font-family: 'ReSquare', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+
+    border: none;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+.form-btn span {
+    position: relative;
+    z-index: 3;
+    letter-spacing: 2%;
+}
+.form-btn::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        #47D6F3,
+        #FF90CB,
+        #47D6F3
+    );
+
+    background-size: 300% 300%;
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    z-index: 1;
+}
+.form-btn:hover::before {
+    opacity: 1;
+    animation: gradientFlow 4s ease infinite;
+}
+
+/* 💎 ГЛЯНЦЕВЫЙ СЛОЙ */
+.form-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(255,255,255,0.35),
+        transparent 100%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    z-index: 2;
+}
+
+.form-btn:hover::after {
+    opacity: 1;
+}
+
+/* 🚀 hover */
+.form-btn:hover {
+    color: #1E1D1D;
+
+    box-shadow:
+        0 10px 40px rgba(255,144,203,0.35),
+        0 0 80px rgba(4, 180, 250, 0.25);
+
+    transform: scale(1.05);
+}
+
+/* 💥 клик */
+.form-btn:active {
+    transform: scale(0.97);
+}
+
+/* 🎞 анимация */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.goup {
+    display: grid;
+    grid-column: 2 / span 4; /* 🔥 начинается со 2 колонки */
+    align-self: self-start; /* 🔥 прижимает вниз */
+    margin-top: auto;
+    margin-left: 149px;
+   
+    z-index: 20;        /* чтобы быть над всеми блоками */
+
+    align-self: start;  /* выравниваем по началу колонки */
+}
+.goup-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+.goup-btn span {
+    font-family: 'ReSquare', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+    letter-spacing: 2%;
+    transition: color 0.3s ease;
+    font-weight: 700;
+}
+.goup-icon {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    background: #1E1D1D;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    transition: transform 0.3s ease;
+}
+.goup-icon img {
+    width: 24px;
+    height: 24px;
+
+    position: relative;
+    z-index: 3;
+
+    filter: invert(1); /* 🔥 делаем белой изначально */
+    transition: filter 0.3s ease;
+}
+.goup-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        #47D6F3,
+        #FF90CB,
+        #47D6F3
+    );
+
+    background-size: 300% 300%;
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    z-index: 1;
+}
+.goup-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(255,255,255,0.35),
+        transparent 100%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    z-index: 2;
+}
+.goup-btn:hover .goup-icon::before {
+    opacity: 1;
+    animation: gradientFlow 4s ease infinite;
+}
+
+.goup-btn:hover .goup-icon::after {
+    opacity: 1;
+}
+
+.goup-btn:hover .goup-icon {
+    transform: scale(1.1);
+}
+
+.goup-btn:hover span {
+    color: #FF90CB;
+}
+
+/* 🔥 SVG становится чёрной */
+.goup-btn:hover img {
+    filter: invert(0);
+}
+
+.goup-btn:active .goup-icon {
+    transform: scale(0.95);
+}
+
+
+.contacts img{
+    z-index: 1;
+    position: relative;
+}
+.item3 {
+    display: flex;
+    gap: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+}
+.item3 a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+}
+.item3 span {
+    text-decoration: none;
+    color: #1E1D1D; 
+    font-family: 'Corsa', sans-serif;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.item3 img {
+    width: 64px;
+    height: 64px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+.item3 img {
+    width: 64px;
+    height: 64px;
+    filter: invert(0); /* чёрные */
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+
+
+/* Hover */
+.item3:hover {
+    transform: scale(1.05);;
+}
+
+.item3:hover a span {
+    color: #1E1D1D; /* цвет при наведении */
+}
+
+.item3:hover img {
+    transform: scale(1.02);
+}
+
+
+.cont100 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 120px; 
+}
+.text4 h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: 64px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+}
+.projtext p{
+    display: flex;
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+}
+.projects {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+}
+.proj1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+    align-items: stretch;
+}
+.proj2 {
+    display: grid;
+    margin-top: 56px;
+    margin-bottom: 56px;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+    align-items: stretch;
+}
+.proj3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+    align-items: stretch;
+}
+.proj5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+    align-items: stretch;
+}
+.projimages1-5 {
+    display: grid;
+    height: 100%;
+    pointer-events: none;
+}
+.projimages1-1, .projimages1-2,
+.projimages1,
+.projimages2 {
+    position: relative;
+    z-index: 1;
+}
+
+
+.projtext {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    z-index: 5;
+}
+.projects h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+
+.projects h6 {
+    font-family: 'Corsa', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 40px;
+    align-self: flex-end;
+}
+.projects h2{
+    font-family: 'Corsa', sans-serif;
+    font-size: 40px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 32px;
+}
+.projects a{
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.projects a:not(.butlook) {
+    display: none;
+  }
+.down {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+}
+.leftpart {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+.leftpart h3{
+    font-family: 'ReSquare', sans-serif;
+    font-size: 48px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+}
+.leftpart h4{
+    font-family: 'Corsa', sans-serif;
+    font-size: 32px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/*КНОПКА*/
+.butlook {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'ReSquare', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+
+    padding: 21px 64px;
+    height: 80px;
+    border-radius: 100px;
+
+    background: #1E1D1D;
+    color: #fff;
+
+    cursor: pointer;
+    isolation: isolate;
+
+    transition: 
+        transform 0.25s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+    align-self: end;
+}
+
+/* текст */
+.butlook span {
+    position: relative;
+    z-index: 3;
+
+    font-family: 'ReSquare', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+
+}
+.butlook:hover span {
+    color: #1E1D1D;
+}
+/* 🔥 ОСНОВНОЙ ГРАДИЕНТ (движущийся) */
+.butlook::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        #47D6F3,
+        #FF90CB,
+        #47D6F3
+    );
+
+    background-size: 300% 300%;
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    z-index: 1;
+}
+.butlook {
+    text-decoration: none;
+    display: flex; /* или flex, если у тебя был flex */
+}
+/* ✨ ЖИВОЙ ПЕРЕЛИВ (анимация) */
+.butlook:hover::before {
+    opacity: 1;
+    animation: gradientFlow 4s ease infinite;
+}
+
+/* 💎 ГЛЯНЦЕВЫЙ СЛОЙ */
+.butlook::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(255,255,255,0.35),
+        transparent 100%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    z-index: 2;
+}
+
+.butlook:hover::after {
+    opacity: 1;
+}
+
+/* 🚀 hover */
+.butlook:hover {
+    color: #1E1D1D;
+
+    box-shadow:
+        0 10px 40px rgba(255,144,203,0.35),
+        0 0 80px rgba(4, 180, 250, 0.25);
+
+    transform: scale(1.05);
+}
+
+/* 💥 клик */
+.butlook:active {
+    transform: scale(0.97);
+}
+
+/* 🎞 анимация */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/*next*/
+.projimages1-1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    height: 100%;
+    pointer-events: none;
+}
+.projimages1-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    height: 100%;
+    pointer-events: none;
+}
+.projimages1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+}
+.projimages2 {
+    flex: 2;
+    display: flex
+}
+
+.projimages1 img {
+    width: 100%;
+    flex: 1; /* 🔥 делит высоту пополам */
+    object-fit: cover;
+}
+.projimages2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.projimages3 img {
+    width: 100%;
+    object-fit: cover;
+}
+.footer{
+    display: flex;
+    margin-top: 72px;
+}
+
+.footerline{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 24px;
+}
+.line1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.line1 span{
+    font-size: 72px;
+    color: #FF90CB;
+    font-family: 'ReSquare', sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.line1 h1{
+    font-family: 'Corsa', sans-serif;
+    font-size: 24px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    opacity: 50%;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+.line1 h1:hover{
+    text-decoration: underline;
+    opacity: 100%;
+}
+.sign{
+    margin-top: 16px;
+}
+.sign img{
+    width: 24px;
+    height: 24px;
+}
+.sign a{
+    font-size: 32px;
+    color: #1E1D1D;
+    font-family: 'ReSquare', sans-serif;
+    font-weight: 500;
+}
+.linepink, .linepink2{
+    width: 100%;        /* 🔥 растягивается */
+    max-width: 651px;   /* 🔥 но не больше чем было */
+    height: 2px;
+    background-color: #FF90CB;
+}
+.linepink,
+.linepink2 {
+    width: clamp(120px, 100%, 651px);
+}
+.line3{
+    align-items: center;
+}
+.linepink2{
+    margin-bottom: 24px;
+}
+.line1,
+.line3 {
+    flex: 1;
+    min-width: 0; /* 🔥 очень важно */
+}
+.line3{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   /* центр по горизонтали */
+    text-align: left;    /* центр текста */
+}
+.line3 span{
+    font-family: 'Corsa', sans-serif;
+    font-size: 24px;
+    color: #1E1D1D;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    margin-bottom: 16px;
+    margin-left: 0;
+    margin-top: 0px;
+}
+.footer-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* 🔥 ВАЖНО */
+}
+
+/* сам кружок */
+.footer-icon {
+    width: clamp(36px, 8vw, 64px);
+    height: clamp(36px, 8vw, 64px);
+    position: relative;
+    border-radius: 100%;
+
+    background: #1E1D1D;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* SVG */
+.footer-icon img {
+    width: clamp(18px, 4vw, 32px);
+    height: clamp(18px, 4vw, 32px);
+
+    position: relative;
+    z-index: 3;
+
+    filter: invert(1); /* 🔥 белые изначально */
+    transition: filter 0.3s ease;
+}
+
+/* градиент как у кнопок */
+.footer-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        #47D6F3,
+        #FF90CB,
+        #47D6F3
+    );
+
+    background-size: 300% 300%;
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    z-index: 1;
+}
+
+/* глянец */
+.footer-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(255,255,255,0.35),
+        transparent 100%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    z-index: 2;
+}
+
+/* hover */
+.footer-icon:hover::before {
+    opacity: 1;
+    animation: gradientFlow 4s ease infinite;
+}
+
+.footer-icon:hover::after {
+    opacity: 1;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 10px 30px rgba(255,144,203,0.35),
+        0 0 60px rgba(71,214,243,0.25);
+}
+
+/* 🔥 SVG становится черной */
+.footer-icon:hover img {
+    filter: invert(0);
+}
+
+/* 💥 клик */
+.footer-icon:active {
+    transform: scale(0.92);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .body {
+        overflow-x: hidden;
+    }
+    .header {
+        margin-bottom: 0px;
+        margin-top: 57px;
+    }
+    .text {
+      left: 50%;
+      top: 0%;
+      transform: translateX(-50%);
+      text-align: center;
+      flex-direction: column;
+      align-items: start;
+      margin-bottom: 0px;
+    }
+  
+    .text h1 {
+      font-size: clamp(56px, 12vw, 120px);
+    }
+  
+    .text h2 {
+    
+      font-size: clamp(32px, 5vw, 48px);
+    }
+    .header h1 {
+        font-size: clamp(40px, 5vw, 48px);
+    }
+    .textn{
+        display: flex;
+        flex-direction: row;       /* элементы в строку */
+        justify-content: space-between; /* 1 слева, 2 справа */
+        width: 100%;               /* растягиваем на всю ширину блока */
+        margin-top: 0px;
+        align-items: baseline;
+        margin-bottom: 0%;
+    }
+    .textn h2{
+        margin: 0;
+        text-align: center;
+        flex: 1; /* чтобы делить пространство поровну */
+    }
+    .hero {
+        min-height: auto;
+        height: 80vh;
+        margin-top: 56px;
+        padding: 0px 0px;
+        overflow: visible;
+    }
+    .text2 {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        position: absolute;
+        padding-bottom: 0px;
+        margin-top: 0%;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .text2 h1 {
+        font-size: clamp(24px, 5vw, 24px);
+    }
+    .text2 h2 {
+        font-size: clamp(24px, 5vw, 24px);
+    }
+    .me {
+        margin: 0;
+        object-fit: contain;
+    }
+    .bg1 {
+        top: -60%;      /* меньше смещение вверх */
+        left: -40%;     /* меньше смещение влево */
+        width: clamp(120px, 100vw, 300px); /* адаптивная ширина */
+    }
+    
+    .bg2{
+        width: clamp(120px, 100vw, 171px);
+        top: 50%;
+        left: -30%;
+    }
+    .bg3{
+        width: clamp(120px, 100vw, 300px);
+        height: clamp(120px, 100vw, 300px);
+        top: -60%;
+        left: 25%;
+    }
+    .bg4{
+        top: -10%;
+        left: -80%;
+        width: clamp(120px, 100vw, 300px);
+        z-index: 4;
+    }
+    .bg5{
+        top: 40%;
+        left: 25%;
+        width: clamp(120px, 100vw, 300px);
+    }
+    .bg6{
+        top: -40%;
+        left: 55%;
+        width: clamp(120px, 100vw, 360px);
+        height: clamp(120px, 100vw, 360px);
+    }
+    .bg7 {
+        top: 40%;
+        left: 50%;
+        width: clamp(200px, 10%, 300px);
+    }
+    .bg8 {
+        top: 28%;
+        left: 80%;
+        width: clamp(200px, 10%, 300px);
+    }
+    .projtext p{
+        display: none;
+    }
+    .bg9 {
+        display: none;
+    }
+    .bg10 {
+        display: none;
+    }
+    .cont2 {
+        margin-top: 56px;
+
+        display: flex;
+    }
+    .aboutme {
+        height: auto; /* чтобы блок подстраивался под контент */
+        padding: 0 0px;
+    }
+    .study {
+        margin-bottom: 32px;
+    }
+    .pill {
+        font-family: 'ReSquare', sans-serif;
+        font-size: 16px;
+        padding: 8px 10px;
+        background-color: #FFFFFF;
+        border-radius: 24px;
+        color: #1E1D1D;
+        border: 1px solid pink;
+        font-weight: 500;
+        height: 30px;
+    }
+    .pills{
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+    .tt {
+        font-size:12px;
+        line-height: 1.2;
+        text-align: left;
+    }
+
+    .sect1 {
+
+        gap: 32px; /* расстояние между секциями */
+        position: relative;
+        margin-top: 10%;
+        align-items: stretch; /* растягиваем колонки на всю ширину */
+    }
+    .text3 h1{
+        font-size: 32px;
+    }
+    .sect2{
+        flex-direction: column;
+        align-items: left; /* чтобы центрировать колонки */
+        position: relative;
+        width: 100%;        
+    }
+    .sect3{
+        flex-direction: column;
+        align-items: left; /* чтобы центрировать колонки */
+        gap: 16px; /* расстояние между секциями */
+        position: relative;
+        margin-top: 0px;
+    }
+    .sect2 h1,
+    .sect3 h1 {
+        text-align: left;
+        font-size: clamp(20px, 6vw, 48px); /* заголовки H1 */
+        margin-top: 0%;
+        margin-bottom: 5%;
+    }
+    .sect2 a{
+        font-size: clamp(20px, 6vw, 32px); /* заголовки H1 */
+        margin-bottom: 2%;
+    }
+    .sect2 h2{
+        font-size: clamp(16px, 6vw, 16px); /* заголовки H1 */
+        width: 100%;
+        text-align: left;        /* или center, если хочешь по центру */
+        margin: 0;
+    }
+    .myimg {
+        margin: 24px auto 48px auto; /* сверху 24px, снизу 48px, по центру горизонтально */
+        width: 80vw;                 /* ширина адаптивно, 80% от экрана */
+        max-width: 400px;            /* чтобы не растягивалось слишком */
+        height: auto;                /* сохраняем пропорции */
+        background-size: contain;    
+        background-position: center; 
+        display: block;              /* для корректного центрирования */
+    }
+    .img-wrapper {
+        width: 80vw;          /* адаптивная ширина */   /* ограничение */
+        aspect-ratio: 1 / 1;  /* 🔥 чтобы не пропала */
+        margin: 0 auto 32px auto; /* центр + отступ снизу */
+        top: 0;               /* убираем смещение */
+        height: 160px;
+    }
+    .sect3 h3 {
+        font-family: 'Corsa', sans-serif;
+        font-size: clamp(20px, 6vw, 48px);
+        color: #1E1D1D;
+        font-weight: 400;
+        line-height: 1;
+        z-index: 100;
+        margin-top: 0px;
+        margin-bottom: 5%;
+    }
+    .pill2 {
+        font-family: 'ReSquare', sans-serif;
+        font-size: 16px;
+        padding: 8px 10px;
+        background-color: #FFFFFF;
+        border-radius: 24px;
+        color: #1E1D1D;
+        border: 1px solid #AEF088;
+        font-weight: 500;
+        height: 30px;
+    }
+    .pills2{
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .pr1, .pr2 {
+        display: flex;           
+        align-items: center;    
+        gap: 8px;     
+      }
+      
+      .pr1 img, .pr2 img {
+        width: 40px;           
+        height: 40px;           
+        object-fit: contain;    
+      }
+      
+      .pr1 span, .pr2 span {
+        font-family: 'Corsa', sans-serif;
+        font-size: 16px;
+        color: #1E1D1D;
+        font-weight: 400;
+      }
+
+      .cont100{
+        margin-top: 56px;
+      }
+      .text4 h1{
+        font-size: 32px;
+      }
+      .projects {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+        margin-bottom: 10%;
+      }
+
+      .projimages1, .projects h2{
+        display: none;
+      }
+      .projimages2{
+        width: auto;
+        height: 218px;
+      }
+      .proj1 {
+        flex-direction: column;
+        display: flex;
+        margin-top: 5%;
+      }
+      .proj5 {
+        flex-direction: column;
+        display: flex;
+        margin-top: 5%;
+      }
+      .proj2 {
+        flex-direction: column-reverse;
+        display: flex;
+        margin-top: 10%;
+        margin-bottom: 10%;
+      }
+      .proj3 {
+        flex-direction: column;
+        display: flex;
+        margin-top: 0px;
+      }
+      
+    .projimages1-1, .projimages1-2 {
+        display: flex;
+        gap: 8px;
+        height: 100%;
+        pointer-events: none;
+    }
+    .projects h1, .projects h6 {
+        font-family: 'Corsa', sans-serif;
+        font-size: 20px;
+        color: #1E1D1D;
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 0px;
+    }
+    .projects h6{
+        align-self: flex-start;
+    }
+    .leftpart h3 {
+        font-size: 20px;
+    }
+    .leftpart h4 {
+        font-size: 15px;
+    }
+    .butlook {
+        font-size: 20px;
+        font-weight: 700;
+        padding: 12px 36px;
+        height: 44px;
+    }
+    
+    .projtext{
+        gap: 8px;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    .leftpart{
+        gap: 6px;
+        align-self: end;
+    }
+    .projimages3{
+        display: none;
+    }
+    .contacts{
+        margin-top: 56px;
+    }
+    .text5{
+        margin-top: 0px;
+    }
+    .text5 h1{
+        font-size: 32px;
+    }
+    .contcontacts {
+        display: flex;
+        flex-direction: column;
+        gap: 148px;
+        margin-top: 40px;
+    }
+    .itemsmy {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 0px;
+    }
+    .item3 img {
+        width: 28px;
+        height: auto;
+    }
+    .item3 span {
+        font-size: 16px;
+    }
+    .goup {
+        display: flex;
+        margin-top: 16px;
+        z-index: 20;
+        margin-left: 0px;
+        align-self: center;
+    }
+    .goup-icon {
+        width: 44px;
+        height: 44px;
+    }
+    .goup-btn span {
+        font-size: 20px;
+    }
+    .goup-icon img {
+        width: 16px;
+        height: 12px;
+    }
+    .contact-form {
+        background: #fff;
+        border-radius: 32px;
+        padding: 24px;
+        gap: 32px;
+    }
+    .contact-form h2 {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+    .contact-form input, .contact-form textarea {
+        font-size: 16px;
+    }
+    .form-btn {
+        height: 44px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .footer{
+        margin-top: 56px;
+    }
+    .footerline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .linepink2{
+        display: none;
+    }
+    .linepink{
+        width: 100%;
+    }
+    .line1 {
+        align-items: center;
+    }
+    .line1 span {
+        font-size: 48px;
+        margin-bottom: 8px;
+    }
+    .sign {
+        margin-top: 0px;
+    }
+    .sign img {
+        width: 16px;
+        height: 16px;
+    }
+    .sign a {
+        font-size:20px;
+    }
+    .line1 h1 {
+        font-size: 16px;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+    .line2 {
+        order: 3; /* теперь она последняя */
+
+    }
+    .line2 {
+        width: 100%;          /* чтобы занимала всю ширину */
+        overflow: hidden;     /* обрезаем лишнее */
+        display: flex;        /* flex нужен для центрирования */
+        justify-content: center; /* центрируем изображение */
+    }
+
+    .line2 img {
+        max-width: 100%;     /* никогда не будет шире родителя */
+        height: auto;        /* сохраняем пропорции */
+        display: block;      /* убираем inline-gap */
+    }
+
+    .line3 {
+        order: 2; /* становится второй */
+        align-items: center;
+    }
+    .line3 span {
+        font-size: 20px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .line1 {
+        order: 1; /* остаётся первой */
+    }
+    .projects a {
+        font-family: 'Corsa', sans-serif;
+        font-size: 20px;
+    }
+    .butlook {
+        font-size: 20px;
+        padding: 12px 36px;
+        height: 44px;
+    }
+    
+    .butlook span {
+        font-size: 20px;
+    }
+    .footer-icon {
+        width: 44px;
+        height: 44px;
+    }
+    .footer-icon img{
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Анимация только для устройств с мышкой (десктоп) */
+@media (hover: hover) and (pointer: fine) {
+
+
+    
+    /* Плавный переход для всех элементов bg */
+    .bg1, .bg2, .bg3, .bg4, .bg5,
+    .bg6, .bg7, .bg8 {
+        transition: transform 0.5s ease;
+    }
+    
+    /* Hover-анимация */
+    .hero:hover .bg1 { transform: translate(-5px, -5px) rotate(2deg); }
+    .hero:hover .bg2 { transform: translate(7px, -3px) rotate(-1deg); }
+    .hero:hover .bg3 { transform: translate(-10px, 6px) rotate(3deg); }
+    .hero:hover .bg4 { transform: translate(5px, 8px) rotate(-2deg); }
+    .hero:hover .bg5 { transform: translate(-6px, 4px) rotate(1deg); }
+    .hero:hover .bg6 { transform: translate(8px, -7px) rotate(-3deg); }
+    
+    }
+    @media (max-width: 1400px) {
+        .item3 img {
+            width: 56px;
+            height: 56px;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        .item3 span {
+            text-decoration: none;
+            color: #1E1D1D;
+            font-family: 'Corsa', sans-serif;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            font-size: 28px;
+            line-height: 1;
+        }
+    }
+    @media (max-width: 1200px) {
+        .contcontacts {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 56px;
+        }
+        .goup {
+            display: grid;  
+            margin-top: auto;
+            z-index: 20;
+            align-self: center;
+            margin-left: 0px;
+        }
+        .itemsmy{
+            margin-top: 0px;
+        }
+    }
